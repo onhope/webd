@@ -14,7 +14,35 @@
 	<body>
 	<div id="container">
 		<header>
-			<h1>어디까지 가 봤니?</h1>				
+			<h1>어디까지 가 봤니?</h1>			
+			<nav>
+				<a href="#eu" class="nav-btn">유럽</a>
+				<a href="#us" class="nav-btn">미국</a>
+				<a href="#ch" class="nav-btn">중국</a>
+				<a href="#jp" class="nav-btn">일본</a>
+			</nav>	
 		</header>				
+		<section id="eu" class="page1">
+			<h2>Europe</h2>
+		</section>
+		<section id="us" class="page2">
+			<h2>United States</h2>
+		</section>
+		<section id="ch" class="page3">
+			<h2>China</h2>
+		</section>
+		<section id="jp" class="page4">
+			<h2>Japan</h2>
+		</section>
+		<script src="js/jquery-2.2.4.min.js"></script>
+		<script src="js/jquery.scrollTo.min.js"></script>
+		<script>
+			$(function() {
+				$('nav a').click(function(e) { // 링크를 클릭했을 때
+					$scrollTop(this.hash || 0, 1500); // 해시(#eu, #us, #ch, #jp)가 있는 위치, 즉 클릭한 링크의 해시 값이 있는 섹션으로 스크롤 
+					e.preventDefault(); // 링크의 원래 기능을 끔
+				});
+			});
+		</script>
 	</body>	
 </html>
