@@ -4,8 +4,41 @@
 	<title>bean o`clock</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/parallax.css">
 </head>
 <body>
-
+	<div id="wrap">
+		<div id="ms1" class="container">
+			<section class="content">
+				<h3>it's bean o'clock</h3>
+				<p>더치커피와 원두커피 전문 쇼핑 몰 빈어클락입니다</p>
+				<div class="icon"><img src="./images/icon_view.png" alt=""></div>
+			</section>
+		</div>
+		<div id="ms2" class="container">
+			<section class="content">
+				<h3>Cold brewed coffee</h3>
+				<p>믿을 수 있는 고품질의 더치커피를 찾으신다면 지금 바로 주문하세요</p>
+				<div class='icon'><img src="./images/icon_order.png" alt=""></div>
+			</section>
+		</div>
+		<div id="ms3" class="container">
+			<section class="content">
+				<h3>Roasted bean</h3>
+				<p>주문 후 로스팅한 신선한 원두를 만나보고 싶다면 지금 바로 주문하세요</p>
+				<div class="icon"><img src="./images/icon_order.png" alt=""></div>
+			</section>
+		</div>
+	</div>
+	<script src="./js/jquery-2.2.4.min.js"></script>
+	<script>
+		$(function() {
+			$('.icon img').hover(function() { // 클래스 icon의 img에 마우스오버가 되었을 때 실행되는 함수
+				$(this).attr('src', $(this).attr('src').replace('.png', '_over.png')); // true일때 실행
+			}, function() {
+				$(this).attr('src', $(this).attr('src').replace('_over.png', '.png')); // false일때 실행
+			});
+		}); 
+	</script>
 </body>
 </html>
