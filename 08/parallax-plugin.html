@@ -4,45 +4,74 @@
 	<title>bean o`clock</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="css/parallax.css" rel="stylesheet">
+	<link rel="stylesheet" href="./css/parallax.css">
 </head>
 <body>
-	<div id="wrap">  
-		<div id="ms1" class="container" style='background-image:url("images/bg01.jpg")'>
-			<section class="content">			
-				<h3>It's bean o'clock</h3>
-				<p>더치커피와 원두커피 전문 쇼핑몰 빈어클락입니다.				
-					<div class='icon'><img src='images/icon_view.png'></div>
-				</p>
+	<div id="navi">
+		<h1>
+			<a href="http://www.beanoclock.com">
+				<img src="images/logo.jpg" alt="">
+			</a>
+		</h1>
+		<ul class="main-nav">
+			<li><a href="#ms1" class="scroll">Link 1</a></li>
+			<li><a href="#ms2" class="scroll">Link 2</a></li>
+			<li><a href="#ms3" class="scroll">Link 3</a></li>
+		</ul>
+	</div>
+	<div id="wrap">
+		<div id="ms1" class="container bg-holder" data-width="1200" data-height="730">
+			<section class="content">
+				<h3>it's bean o'clock</h3>
+				<p>더치커피와 원두커피 전문 쇼핑 몰 빈어클락입니다</p>
+				<div class="icon"><img src="./images/icon_view.png" alt=""></div>
 			</section>
 		</div>
-		<div id="ms2" class="container" style='background-image:url("images/bg02.jpg")'>
+		<div id="ms2" class="container bg-holder" data-width="1200" data-height="730">
 			<section class="content">
 				<h3>Cold brewed coffee</h3>
-				<p>	믿을 수 있는 고품질의 더치커피를 찾으신다면<br>
-				지금 바로 주문하세요!						
-					<div class='icon'><img src='images/icon_order.png'></div>
-				</p>
+				<p>믿을 수 있는 고품질의 더치커피를 찾으신다면 지금 바로 주문하세요</p>
+				<div class='icon'><img src="./images/icon_order.png" alt=""></div>
 			</section>
 		</div>
-		<div id="ms3" class="container " style='background-image:url("images/bg03.jpg")'>
+		<div id="ms3" class="container bg-holder" data-width="1200" data-height="730">
 			<section class="content">
 				<h3>Roasted bean</h3>
-				<p> 주문 후 로스팅한 신선한 원두를<br>
-				만나보고 싶다면 지금 바로 주문하세요!
-					<div class='icon'><img src='images/icon_order.png'></div>
-				</p>
+				<p>주문 후 로스팅한 신선한 원두를 만나보고 싶다면 지금 바로 주문하세요</p>
+				<div class="icon"><img src="./images/icon_order.png" alt=""></div>
 			</section>
 		</div>
 	</div>
-
-	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="./js/jquery-2.2.4.min.js"></script>
+	<script src="./js/jquery.parallax-scroll.min.js"></script>
 	<script>
 		$(function() {
-			$('.icon img').hover(function() {
-				$(this).attr('src', $(this).attr('src').replace('.png', '_over.png'));				
+			// 네비게이션 메뉴 클릭시, 부드럽게 해당위치로 변경
+			$('.scroll').click(function(e) { // scroll 클래스를 클릭했을 때 실행할 함수 정의
+				e.preventDefault(); // 이벤트가 발생했을 때의 기본동작, 즉 #ms1이나 #ms2로 즉시 이동하는 동작을 취소
+				$('html, body').animate({scrollTop:$(this.hash).offset().top}, 500); // animate 메소드로 지정한 시간 동안 현재 해시의 top 오프셋 값을 스크롤했을 때의 위치값으로 변경 
+			});
+			// 섹션이 화면에 가득하게 만들기
+			$(window).resize(function() {
+				$('.container').width($(window).width()).height($(window).height()); // 현재 창의 너비값을 .container의 너비로, 현재 창의 높이값을 .container의 높이로 
+				$('.content').each(function() {
+					$(this).css('margin-left',($(this).width()/2 * -1) + 'px').css('margin-top',($(this).height()/2 * -1) + 'px');
+				});
+			});
+
+      setTimeout(function(){
+        $(window).resize()}, 1000); 
+
+			// parallax scroll 플러그인 사용
+			$('.bg-holder').parallaxScroll({
+				friction : 0.3
+			});
+
+			// 이미지 오버시 효과
+			$('.icon img').hover(function() { // 클래스 icon의 img에 마우스오버가 되었을 때 실행되는 함수
+				$(this).attr('src', $(this).attr('src').replace('.png', '_over.png')); // true일때 실행
 			}, function() {
-				$(this).attr('src', $(this).attr('src').replace('_over.png', '.png'));
+				$(this).attr('src', $(this).attr('src').replace('_over.png', '.png')); // false일때 실행
 			});
 		});
 	</script>
