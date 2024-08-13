@@ -15,19 +15,19 @@
         margin-bottom:20px;
       }      
       .box1{
-        flex:2;    
+        flex:2; /* 값이 하나인데 단위가 없는 경우 flex-grow */
       }
       .box2{
-        flex:30px;         
+        flex:30px; /* 값이 하나인데 단위가 있는 경우 flex-basis */
       }
       .box3{
-        flex:1 40px;         
+        flex:1 40px; /* 값이 두개인데, 단위가 없는 값는 flex-grow, 단위가 있는 것은 flex-basis */
       } 
       .box4{
-        flex:1 1;  
+        flex:1 1; /* 값이 두개인데, 둘다 단위가 없으면 순서대로 flex-grow, flex-shrink */
       }      
       .box5{
-        flex:2 2 0;        
+        flex:2 2 0; /* 값이 세개, 순서대로 flex-grow, flex-shrink, flex-basis */
       }                           
       .box {
         padding:5px 10px;
