@@ -5,6 +5,18 @@
 	<title>Tubular 플러그인 연습</title>	
 </head>
 <body>	
+	<div id="wrapper"></div>
+	<script src="./js/jquery-2.2.4.min.js"></script>
+	<script src="./js/jquery.tubular.1.0.js"></script>
+	<script>
+		$("document").ready(function() {
+			var options = {
+				videoId : '3szpi-S2sYE',
+				start : 8
+			};
 
+			$('#wrapper').tubular(options);
+		})
+	</script>
 </body>
 </html>
