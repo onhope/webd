@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
 
 * {
   margin:0;
@@ -42,6 +43,10 @@ nav a#trigger {
 }
 
 @media screen and (min-width:764px) {
+  .wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+  }
   nav {
     height: 80px;
     border-bottom:2px solid #34495e;
@@ -110,6 +115,7 @@ section:nth-child(odd) {
   padding:20px 50px;
 }
 .msg p {
+  font-family: "Nanum Myeongjo", serif;
   color: #ff6600;
   font-size:1.4em;
   font-style: italic;
@@ -185,3 +191,40 @@ section:nth-child(odd) {
   margin-right:0;
 }
 
+@media screen and (min-width: 764px){
+  .intro {
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+  }
+  .text {
+    flex: 2;
+  }
+  .img {
+    display: block;
+    flex: 1;
+  }
+  .img > img {
+    max-width: 250px;
+  }
+  .program-list {
+    display: flex;
+    justify-content: space-between;
+  }
+  .program {
+    flex-basis: 22%;
+  }
+  .footer-info {
+    max-width: 1300px;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact {
+    flex: 2;
+  }
+
+  .sns {
+    flex: 1;
+  }
+}
