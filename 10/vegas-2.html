@@ -20,11 +20,11 @@
         $(function(){
           $('body').vegas({
             slides:[
-              {src:'images/swans.jpg',
-                video:{
-                  src: ['videos/swans.mp4'],
-                  loop:false,
-                  mute:true
+              {src:'images/swans.jpg', // 동영상을 재생할 수 없을 경우를 위해 대체 이미지 지정
+                video:{ // video {} 안에 배경 동영상과 옵션 지정
+                  src: ['videos/swans.mp4'], // src 속성을 사용해 동영상 지정
+                  loop:false, // loop 속성을 사용해 동영상 반복 여부 지정
+                  mute:true // 동영상을 무음 상태로 만듦
                 }
               }
             ]
